@@ -1,0 +1,6 @@
+[run]
+omit =
+    attractions_django/asgi.py
+    attractions_django/wsgi.py
+    manage.py
+    */management/*
