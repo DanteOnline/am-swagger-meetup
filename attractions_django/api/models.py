@@ -9,5 +9,5 @@ class Attraction(models.Model):
     language = models.CharField(max_length=50)  # ISO: "ru", "en", etc.
     tags = models.JSONField(blank=True, default=list)  # Список тегов: ["museum", "family"]
 
-    def __str__(self):
-        return f"{self.name} ({self.city})"
+    # def __str__(self):
+    #     return f"{self.name} ({self.city})"

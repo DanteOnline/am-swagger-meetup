@@ -1,8 +1,8 @@
 from rest_framework.routers import DefaultRouter
-from .views import AttractionViewSet
 from django.urls import path, include
+from .views import AttractionViewSet
 
-app_name = 'api'
+app_name = 'api'  # pylint:disable=invalid-name
 
 router = DefaultRouter()
 router.register(r"attractions", AttractionViewSet, basename="attraction")
