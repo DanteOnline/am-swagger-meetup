@@ -1,0 +1,218 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Attractions API",
+        "description": "For AM Meetup",
+        "termsOfService": "https://www.google.com/policies/terms/",
+        "contact": {
+            "email": "iamdanteonline@gmail.com"
+        },
+        "license": {
+            "name": "BSD License"
+        },
+        "version": "v1"
+    },
+    "basePath": "/api",
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "securityDefinitions": {
+        "Basic": {
+            "type": "basic"
+        }
+    },
+    "security": [
+        {
+            "Basic": []
+        }
+    ],
+    "paths": {
+        "/attractions/": {
+            "get": {
+                "operationId": "attractions_list",
+                "description": "",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Attraction"
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "attractions"
+                ]
+            },
+            "post": {
+                "operationId": "attractions_create",
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Attraction"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/Attraction"
+                        }
+                    }
+                },
+                "tags": [
+                    "attractions"
+                ]
+            },
+            "parameters": []
+        },
+        "/attractions/{id}/": {
+            "get": {
+                "operationId": "attractions_read",
+                "description": "",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/Attraction"
+                        }
+                    }
+                },
+                "tags": [
+                    "attractions"
+                ]
+            },
+            "put": {
+                "operationId": "attractions_update",
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Attraction"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/Attraction"
+                        }
+                    }
+                },
+                "tags": [
+                    "attractions"
+                ]
+            },
+            "patch": {
+                "operationId": "attractions_partial_update",
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Attraction"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/Attraction"
+                        }
+                    }
+                },
+                "tags": [
+                    "attractions"
+                ]
+            },
+            "delete": {
+                "operationId": "attractions_delete",
+                "description": "",
+                "parameters": [],
+                "responses": {
+                    "204": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "attractions"
+                ]
+            },
+            "parameters": [
+                {
+                    "name": "id",
+                    "in": "path",
+                    "description": "A unique integer value identifying this attraction.",
+                    "required": true,
+                    "type": "integer"
+                }
+            ]
+        }
+    },
+    "definitions": {
+        "Attraction": {
+            "required": [
+                "name",
+                "city",
+                "language"
+            ],
+            "type": "object",
+            "properties": {
+                "id": {
+                    "title": "ID",
+                    "type": "integer",
+                    "readOnly": true
+                },
+                "name": {
+                    "title": "Name",
+                    "type": "string",
+                    "maxLength": 255,
+                    "minLength": 1
+                },
+                "city": {
+                    "title": "City",
+                    "type": "string",
+                    "maxLength": 100,
+                    "minLength": 1
+                },
+                "description": {
+                    "title": "Description",
+                    "type": "string"
+                },
+                "is_popular": {
+                    "title": "Is popular",
+                    "type": "boolean"
+                },
+                "language": {
+                    "title": "Language",
+                    "type": "string",
+                    "maxLength": 50,
+                    "minLength": 1
+                },
+                "tags": {
+                    "title": "Tags",
+                    "type": "object"
+                }
+            }
+        }
+    }
+}
