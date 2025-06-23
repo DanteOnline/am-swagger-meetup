@@ -11,3 +11,6 @@ server:
 
 lint:
 	pylint $(shell git ls-files '*.py')
+
+generate_swagger:
+	python manage.py generate_swagger swagger/swagger.json
